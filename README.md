@@ -132,6 +132,11 @@ git config --global init.defaultBranch main
 git config --global core.autocrlf input
 git config --global core.safecrlf warn
 ```
+Аналог обработки строк для Windows:
+```
+git config --global core.autocrlf true
+git config --global core.safecrlf warn
+```
 
 
 

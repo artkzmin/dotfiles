@@ -146,6 +146,12 @@ git config --global core.safecrlf warn
 sudo apt install libxcb-xinerama0 libxcb-cursor0
 ```
 
+## JetBrains Toolbox
+Установка зависимостей:
+```
+sudo apt install libfuse2 libxi6 libxrender1 libxtst6 mesa-utils libfontconfig libgtk-3-bin tar dbus-user-session
+```
+
 
 
 ## Python

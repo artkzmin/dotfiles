@@ -140,6 +140,14 @@ git config --global core.safecrlf warn
 
 
 
+## Amnez...
+Установка зависимостей:
+```
+sudo apt install libxcb-xinerama0 libxcb-cursor0
+```
+
+
+
 ## Python
 
 ### Установка Pyenv

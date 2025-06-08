@@ -195,3 +195,29 @@ sudo chmod 644 ~/.ssh/id_rsa.pub
 PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 export PATH
 ```
+
+
+
+
+## Настройка ssh на сервере
+### Размещение открытого ключа на сервере
+На ПК клиента запускаем следующую команду, чтобы перенести публичный ключ на удалённый сервер:
+```
+ssh-copy-id artem@192.168.0.111
+```
+### Редактирвание файла настройки ssh
+Открываем файл настроек:
+```
+sudo vim /etc/ssh/sshd_config
+```
+Изменяем следующие параметры:
+```
+PermitRootLogin no
+PubkeyAuthentication yes
+PasswordAuthentication no
+X11Forwarding yes
+```
+Перезапускаем ssh-сервер:
+```
+sudo service ssh restart
+```

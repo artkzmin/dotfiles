@@ -43,7 +43,6 @@ export CHSH=no
 export KEEP_ZSHRC=yes
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-chsh -s $(which zsh)
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 wget -O /root/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
 wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh

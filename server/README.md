@@ -1,11 +1,12 @@
 # Скрипт для автоматической настройки сервера при создании
 
-```bash
+```sh
 #!/bin/sh
 
 apt-get update && apt-get upgrade -y
 apt-get install -y vim tmux htop git curl wget unzip zip gcc build-essential make net-tools zsh
 
+# eza
 apt-get install -y gpg
 mkdir -p /etc/apt/keyrings
 rm -f /etc/apt/keyrings/gierens.gpg
@@ -15,6 +16,7 @@ chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 apt-get update
 apt-get install -y eza
 
+# Docker
 apt-get update
 apt-get install ca-certificates curl
 install -m 0755 -d /etc/apt/keyrings
@@ -29,17 +31,19 @@ apt-get update
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+# ssh
 wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/sshd_config
 sudo service ssh restart
 
-wget -O /root/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
-wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
-
+# zsh
 export RUNZSH=no CHSH=no KEEP_ZSHRC=yes && \
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
 chsh -s $(which zsh)
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+wget -O /root/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
+wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
 exec zsh
 
+# Timeweb
 wget -O - http://zabbix.repo.timeweb.ru/zabbix-install.sh | bash
 ```

@@ -4,7 +4,7 @@
 #!/bin/sh
 
 apt-get update && apt-get upgrade -y
-apt-get install -y vim tmux htop git curl wget unzip zip gcc build-essential make net-tools
+apt-get install -y vim tmux htop git curl wget unzip zip gcc build-essential make net-tools zsh
 
 apt-get install -y gpg
 mkdir -p /etc/apt/keyrings
@@ -27,9 +27,19 @@ echo \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt-get update
 
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
 wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/sshd_config
+sudo service ssh restart
+
 wget -O /root/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
 wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
+
+export RUNZSH=no CHSH=no KEEP_ZSHRC=yes && \
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+chsh -s $(which zsh)
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+exec zsh
 
 wget -O - http://zabbix.repo.timeweb.ru/zabbix-install.sh | bash
 ```

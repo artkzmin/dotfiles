@@ -4,7 +4,7 @@
 #!/bin/sh
 
 apt-get update && apt-get upgrade -y
-apt-get install -y vim tmux htop git curl wget unzip zip gcc build-essential make net-tools zsh
+apt-get install -y vim tmux htop git curl wget unzip zip gcc build-essential make net-tools
 
 # eza
 apt-get install -y gpg
@@ -36,6 +36,7 @@ wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/artkzmin/linux-se
 sudo service ssh restart
 
 # zsh
+apt-get install -y zsh
 export RUNZSH=no CHSH=no KEEP_ZSHRC=yes && \
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
 chsh -s $(which zsh)

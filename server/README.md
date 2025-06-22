@@ -47,9 +47,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/.oh-my-zsh/custom/themes/powerlevel10k
 wget -O /root/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
 wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
-
-# Timeweb
-wget -O - http://zabbix.repo.timeweb.ru/zabbix-install.sh | bash
 ```
 
 
@@ -59,4 +56,12 @@ wget -O - http://zabbix.repo.timeweb.ru/zabbix-install.sh | bash
 ```bash
 chsh -s $(which zsh)
 exec zsh
+```
+
+
+
+
+## Телеметрия Timeweb
+```bash
+wget -O - http://zabbix.repo.timeweb.ru/zabbix-install.sh | bash
 ```

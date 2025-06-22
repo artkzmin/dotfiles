@@ -29,21 +29,24 @@ echo \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt-get update
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # ssh
 wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/sshd_config
-sudo service ssh restart
+service ssh restart
 
 # zsh
 apt-get install -y zsh
-export RUNZSH=no CHSH=no KEEP_ZSHRC=yes && \
+
+export RUNZSH=no
+export CHSH=no
+export KEEP_ZSHRC=yes
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 chsh -s $(which zsh)
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 wget -O /root/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
 wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
-exec zsh
 
 # Timeweb
 wget -O - http://zabbix.repo.timeweb.ru/zabbix-install.sh | bash

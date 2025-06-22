@@ -25,4 +25,6 @@ echo \
 sudo apt-get update
 
 sudo wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/sshd_config
+sudo wget -O ~/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
+sudo wget -O ~/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
 ```

@@ -221,3 +221,13 @@ X11Forwarding yes
 ```
 sudo service ssh restart
 ```
+
+
+
+
+## Создание пользователя на сервере
+```
+useradd artem -d /home/artem -m -G users -s /bin/bash ; \
+passwd artem ; \
+sudo usermod -aG sudo artem
+```

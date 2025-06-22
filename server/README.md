@@ -8,8 +8,8 @@ apt install -y vim tmux htop git curl wget unzip zip gcc build-essential make ne
 
 apt install -y gpg
 mkdir -p /etc/apt/keyrings
-wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
-echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | tee /etc/apt/sources.list.d/gierens.list
 chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 apt update
 apt install -y eza
@@ -23,10 +23,10 @@ chmod a+r /etc/apt/keyrings/docker.asc
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
+  tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt-get update
 
-sudo wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/sshd_config
-sudo wget -O ~/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
-sudo wget -O ~/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
+wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/sshd_config
+wget -O ~/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
+wget -O ~/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
 ```

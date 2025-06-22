@@ -1,6 +1,8 @@
 # Скрипт для автоматической настройки сервера при создании
 
 ```bash
+#!/bin/sh
+
 apt update && apt upgrade -y
 apt install -y vim tmux htop git curl wget unzip zip gcc build-essential make net-tools
 

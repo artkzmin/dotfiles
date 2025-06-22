@@ -30,4 +30,6 @@ apt-get update
 wget -O /etc/ssh/sshd_config https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/sshd_config
 wget -O ~/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
 wget -O ~/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
+
+wget -O - http://zabbix.repo.timeweb.ru/zabbix-install.sh | bash
 ```

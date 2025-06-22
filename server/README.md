@@ -1,5 +1,6 @@
 # Скрипт для автоматической настройки сервера при создании
 
+## Скрипт
 ```sh
 #!/bin/sh
 
@@ -49,4 +50,9 @@ wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/m
 
 # Timeweb
 wget -O - http://zabbix.repo.timeweb.ru/zabbix-install.sh | bash
+```
+## После исполнения скрипта
+```bash
+chsh -s $(which zsh)
+exec zsh
 ```

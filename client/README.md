@@ -115,14 +115,3 @@ command not found
 PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 export PATH
 ```
-
-
-
-
-
-## Создание пользователя на сервере
-```
-useradd deploy -d /home/deploy -m -G users -s /bin/bash ; \
-passwd deploy ; \
-sudo usermod -aG sudo deploy
-```

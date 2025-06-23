@@ -71,8 +71,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/.oh-my-zsh/custom/themes/powerlevel10k
 # configs
-wget -O /root/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.zshrc
-wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/server/.p10k.zsh
+wget -O /root/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.zshrc
+wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.p10k.zsh
 exec zsh
 ```
 

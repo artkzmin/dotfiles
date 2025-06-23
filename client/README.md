@@ -54,6 +54,8 @@ git config --global core.safecrlf warn
 # Alacritty
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+# Конфиг
+wget -O ~/.config/alacritty/alacritty.toml https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/alacritty.toml
 
 # Pyenv
 curl -sSL https://install.python-poetry.org | python3 -
@@ -69,10 +71,10 @@ export CHSH=no
 export KEEP_ZSHRC=yes
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/.oh-my-zsh/custom/themes/powerlevel10k
-# configs
-wget -O /root/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.zshrc
-wget -O /root/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.p10k.zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+# Конфиги
+wget -O ~/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.zshrc
+wget -O ~/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.p10k.zsh
 exec zsh
 ```
 

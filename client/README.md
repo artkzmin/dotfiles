@@ -114,7 +114,11 @@ sudo apt-get update
 ```
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-
+### Добавление пользователя в группу `docker`
+Требуется для возможности исполнять `docker`-команды без `sudo`.
+```
+sudo usermod -aG docker artem
+```
 
 
 

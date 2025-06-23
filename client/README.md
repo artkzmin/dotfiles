@@ -1,7 +1,9 @@
 # Linux
 
 ## Первоначальная установка в одном скрипте:
-```bash
+```sh
+#!/bin/sh
+
 # Обновление и базовые пакеты
 sudo apt-get update
 sudo apt-get upgrade -y

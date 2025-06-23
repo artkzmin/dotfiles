@@ -62,7 +62,7 @@ exec zsh
 
 
 ## Создание пользователя
-```
+```bash
 sudo adduser deploy
 sudo usermod -aG sudo deploy
 sudo usermod -aG docker deploy

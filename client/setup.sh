@@ -40,6 +40,10 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 # Добавление пользователя в группу Docker
 sudo usermod -aG docker artem
 
+# Установка Flathub
+sudo apt install -y flatpak gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 # Git
 git config --global user.name artkzmin
 git config --global user.email artkzmin@gmail.com

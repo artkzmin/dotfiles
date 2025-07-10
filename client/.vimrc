@@ -43,10 +43,7 @@ call plug#end()
 " Auto-install missing plugins on startup
 augroup plug_auto_install
   autocmd!
-  autocmd VimEnter * if len(filter(values(g:plugs), 'empty(glob(v:val.dir))')) > 0 |
-        \ PlugInstall --sync |
-        \ source $MYVIMRC |
-      endif
+  autocmd VimEnter * if len(filter(values(g:plugs), 'empty(glob(v:val.dir))')) > 0 | PlugInstall --sync | source $MYVIMRC | endif
 augroup END
 
 " Basic editor settings

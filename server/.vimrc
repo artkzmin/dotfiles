@@ -1,133 +1,133 @@
-# Python
-export PATH="$HOME/.python/bin:$PATH"
+" Ensure Vim is not in compatibility mode
+set nocompatible
 
-# Poetry
-export PATH="$HOME/.local/bin:$PATH"
+" Automatically install vim-plug if not present
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+" Initialize plugin system
+call plug#begin('~/.vim/plugged')
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+" Theme
+Plug 'morhetz/gruvbox'
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+" UI enhancements: status line, tabline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+" File explorer
+Plug 'preservim/nerdtree'
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+" Linting and fixing
+Plug 'dense-analysis/ale'
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+" Auto format on save
+Plug 'Chiel92/vim-autoformat'
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+" Git integration
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+" Rainbow parentheses
+Plug 'luochen1990/rainbow'
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+call plug#end()
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+" Auto-install missing plugins on startup
+augroup plug_auto_install
+  autocmd!
+  autocmd VimEnter * if len(filter(values(g:plugs), 'empty(glob(v:val.dir))')) > 0 | PlugInstall --sync | source $MYVIMRC | endif
+augroup END
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+" Basic editor settings
+syntax on                    " enable syntax highlighting
+filetype plugin indent on    " enable filetype detection and indent
+set number                   " show absolute line numbers
+set relativenumber           " show relative line numbers
+set cursorline               " highlight current line
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+" Tabs and indentation
+set tabstop=4                " number of spaces that a <Tab> in the file counts for
+set shiftwidth=4             " size of an indent
+set expandtab                " use spaces instead of tabs
+set autoindent               " copy indent from current line when starting a new line
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+" File handling improvements
+set noswapfile               " disable swap file creation
+set nobackup                 " disable backup files
+set nowritebackup            " disable write backup files
+set undofile                 " enable persistent undo
+if has('persistent_undo')
+  let target_path = expand('~/.vim/undo')
+  if !isdirectory(target_path)
+    call mkdir(target_path, 'p')
+  endif
+  let &undodir = target_path
+endif
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+" Key mappings: save and exit
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>a
+vnoremap <C-s> <Esc>:w<CR>gv
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+nnoremap <C-q> :q<CR>
+inoremap <C-q> <Esc>:q<CR>
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+" Enable mouse support in all modes
+set mouse=a                  " enable mouse for normal, visual, insert and command-line modes
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+" Gruvbox configuration
+set background=dark          " or light if you prefer
+let g:gruvbox_contrast_dark = 'medium'
+colorscheme gruvbox
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-	poetry
-	)
+" vim-airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='gruvbox'
 
-source $ZSH/oh-my-zsh.sh
+" NERDTree settings
+nnoremap <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
-# User configuration
+" fzf mappings
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>bg :Buffers<CR>
 
-# export MANPATH="/usr/local/man:$MANPATH"
+" ALE settings
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
+let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+" Autoformat on save
+autocmd BufWritePre * Autoformat
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+" GitGutter settings
+let g:gitgutter_enabled = 1
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+" Rainbow parentheses
+let g:rainbow_active = 1
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="eza --tree --level=0 --icons=always --no-time --no-user --no-permissions"
+" Code folding by indent
+set foldmethod=indent
+set foldlevelstart=99        " open all folds by default
 
-alias ls1="eza --tree --level=1 --icons=always --no-time --no-user --no-permissions"
+" Plugin installation check
+" Use :PlugStatus to see which plugins are installed and their status
+" You can map a shortcut for convenience
+nnoremap <leader>ps :PlugStatus<CR>
 
-alias ls2="eza --tree --level=2 --icons=always --no-time --no-user --no-permissions"
+" Optionally, echo a message on startup if all plugins loaded
+autocmd VimEnter * echo "Plugins loaded successfully"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+" Enhance UI
+set showcmd
+set showmode
+set laststatus=2
+set termguicolors            " enable true color

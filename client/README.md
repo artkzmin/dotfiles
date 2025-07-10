@@ -7,16 +7,17 @@ wget -qO- https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/set
 ```
 
 
+## Удаление драйверов NVIDIA
+```bash
+sudo apt-get remove --purge '^nvidia-.*'
+```
 
-
-### Git
+## Git
 Обработка строк для Windows:
 ```ps1
 git config --global core.autocrlf true
 git config --global core.safecrlf warn
 ```
-
-
 
 
 ## Исправление ошибок

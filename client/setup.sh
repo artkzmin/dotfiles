@@ -77,5 +77,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/cu
 # Конфиги
 wget -O ~/.zshrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.zshrc
 wget -O ~/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.p10k.zsh
+
+# vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 wget -O ~/.vimrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.vimrc
-exec zsh

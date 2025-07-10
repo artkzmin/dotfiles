@@ -1,6 +1,3 @@
-# Python
-export PATH="$HOME/.python/bin:$PATH"
-
 # Poetry
 export PATH="$HOME/.local/bin:$PATH"
 

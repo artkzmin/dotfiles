@@ -66,7 +66,7 @@ curl -sSL https://install.python-poetry.org | python3 -
 curl -fsSL https://pyenv.run | bash
 
 # zsh
-apt-get install -y zsh
+sudo apt-get install -y zsh
 # oh my zsh
 export RUNZSH=no
 export CHSH=no

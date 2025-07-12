@@ -51,3 +51,35 @@ command not found
 PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 export PATH
 ```
+
+
+## Настройка DNS в WSL при использовании VPN
+### 1. Отключить авто-генерацию `resolv.conf`
+Открой файл `/etc/wsl.conf`:
+```bash
+sudo vim /etc/wsl.conf
+```
+Добавь в него следующие строки:
+```
+[network]
+generateResolvConf = false
+```
+### 2. Удалить текущий resolv.conf
+```
+sudo rm /etc/resolv.conf
+```
+### 3. Создать новый resolv.conf с корректными DNS-серверами
+```
+sudo vim /etc/resolv.conf
+```
+Вставь в него:
+```
+nameserver 1.1.1.1
+nameserver 1.0.0.1
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+### 4. Перезапустить WSL в PowerShell или cmd:
+```
+wsl --shutdown
+```

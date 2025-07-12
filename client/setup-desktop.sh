@@ -44,15 +44,6 @@ sudo usermod -aG docker artem
 sudo apt install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-# Git
-git config --global user.name artkzmin
-git config --global user.email artkzmin@gmail.com
-# Стандартная ветка
-git config --global init.defaultBranch main
-# Обработка окончаний строк
-git config --global core.autocrlf input
-git config --global core.safecrlf warn
-
 # Alacritty
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
@@ -82,3 +73,6 @@ wget -O ~/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 wget -O ~/.vimrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.vimrc
+
+# Git
+wget -O ~/.gitconfig https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.gitconfig

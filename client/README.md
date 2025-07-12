@@ -2,8 +2,13 @@
 
 
 ## Запуск скрипта
+Для Desktop:
 ```bash
-wget -qO- https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/setup.sh | bash
+wget -qO- https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/setup-desktop.sh | bash
+```
+Для WSL:
+```bash
+wget -qO- https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/setup-wsl.sh | bash
 ```
 
 

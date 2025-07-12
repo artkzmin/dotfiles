@@ -34,15 +34,6 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 # Добавление пользователя в группу Docker
 sudo usermod -aG docker artem
 
-# Git
-git config --global user.name artkzmin
-git config --global user.email artkzmin@gmail.com
-# Стандартная ветка
-git config --global init.defaultBranch main
-# Обработка окончаний строк
-git config --global core.autocrlf input
-git config --global core.safecrlf warn
-
 # Alacritty
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
@@ -72,3 +63,6 @@ wget -O ~/.p10k.zsh https://raw.githubusercontent.com/artkzmin/linux-setup/main/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 wget -O ~/.vimrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.vimrc
+
+# Git
+wget -O ~/.gitconfig https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.gitconfig

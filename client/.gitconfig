@@ -1,0 +1,8 @@
+[user]
+        name = artkzmin
+        email = artkzmin@gmail.com
+[init]
+        defaultBranch = main
+[core]
+        autocrlf = input
+        safecrlf = warn

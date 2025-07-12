@@ -66,3 +66,6 @@ wget -O ~/.vimrc https://raw.githubusercontent.com/artkzmin/linux-setup/main/cli
 
 # Git
 wget -O ~/.gitconfig https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/.gitconfig
+
+# Fix DNS
+sudo bash -c 'echo -e "[network]\ngenerateResolvConf = false" > /etc/wsl.conf && rm -f /etc/resolv.conf && echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1\nnameserver 8.8.8.8\nnameserver 8.8.4.4" > /etc/resolv.conf'

@@ -10,6 +10,10 @@ wget -qO- https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/set
 ```bash
 wget -qO- https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/setup-wsl.sh | bash
 ```
+После этого перезапуск из Powershell или cmd:
+```
+wsl --shutdown
+```
 
 
 ## Удаление драйверов NVIDIA

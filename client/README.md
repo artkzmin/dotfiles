@@ -11,7 +11,7 @@ wget -qO- https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/set
 wget -qO- https://raw.githubusercontent.com/artkzmin/linux-setup/main/client/setup-wsl.sh | bash
 ```
 После этого перезапуск из Powershell или cmd:
-```
+```ps1
 wsl --shutdown
 ```
 

@@ -21,13 +21,6 @@ wsl --shutdown
 sudo apt-get remove --purge '^nvidia-.*'
 ```
 
-## Git
-Обработка строк для Windows:
-```ps1
-git config --global core.autocrlf true
-git config --global core.safecrlf warn
-```
-
 
 ## Исправление ошибок
 ### ssh-ключи
@@ -40,10 +33,6 @@ artem@192.168.0.103: Permission denied (publickey).
 ```bash
 sudo chmod 600 ~/.ssh/id_ed25519 ; \
 sudo chmod 644 ~/.ssh/id_ed25519.pub
-```
-```bash
-sudo chmod 600 ~/.ssh/id_rsa ; \
-sudo chmod 644 ~/.ssh/id_rsa.pub
 ```
 ### zsh
 Текст ошибки:

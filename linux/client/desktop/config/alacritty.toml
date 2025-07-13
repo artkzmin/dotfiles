@@ -1,0 +1,19 @@
+# Themes: https://github.com/alacritty/alacritty-theme
+general.import = [
+    "~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding.x = 10
+padding.y = 10
+
+decorations = "Buttonless"
+opacity = 1.00
+blur = false
+
+[font]
+normal.family = "DroidSansMNerdFont"
+size = 12.0

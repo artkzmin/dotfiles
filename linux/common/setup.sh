@@ -2,7 +2,7 @@
 
 sudo apt-get update
 sudo apt-get upgrade -y
-apt-get install -y vim tmux htop git curl wget unzip zip gcc build-essential make net-tools
+apt-get install -y vim tmux htop git curl wget unzip zip gcc build-essential make net-tools bat
 
 # eza
 apt-get install -y gpg

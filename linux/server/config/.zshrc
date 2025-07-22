@@ -118,5 +118,7 @@ alias ls1="eza --tree --level=1 --icons=always --no-time --no-user --no-permissi
 
 alias ls2="eza --tree --level=2 --icons=always --no-time --no-user --no-permissions"
 
+alias bat="batcat"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

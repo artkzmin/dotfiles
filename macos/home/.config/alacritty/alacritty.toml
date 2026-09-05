@@ -1,0 +1,84 @@
+# Themes: https://github.com/alacritty/alacritty-theme
+general.import = [
+    "~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding.x = 10
+padding.y = 10
+
+decorations = "Buttonless"
+opacity = 1.00
+blur = false
+
+[font]
+normal.family = "DroidSansM Nerd Font"
+size = 12.0
+
+[[keyboard.bindings]]
+key = "С"
+mods = "Command"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "М"
+mods = "Command"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "М"
+mods = "Control"
+chars = "\u0016"
+
+[[keyboard.bindings]]
+key = "2"
+mods = "Control"
+chars = "\u0004"
+
+[[keyboard.bindings]]
+key = "Backspace"
+mods = "Option"
+chars = "\u0017"
+
+[[keyboard.bindings]]
+key = "ArrowLeft"
+mods = "Option"
+chars = "\u001b[1;5D"
+
+[[keyboard.bindings]]
+key = "ArrowRight"
+mods = "Option"
+chars = "\u001b[1;5C"
+
+[[keyboard.bindings]]
+key = "ArrowLeft"
+mods = "Command"
+chars = "\u001bOH"
+
+[[keyboard.bindings]]
+key = "ArrowRight"
+mods = "Command"
+chars = "\u001bOF"
+
+[[keyboard.bindings]]
+key = "J"
+mods = "Command"
+chars = "\u001bj"
+
+[[keyboard.bindings]]
+key = "K"
+mods = "Command"
+chars = "\u001bk"
+
+[[keyboard.bindings]]
+key = "О"
+mods = "Command"
+chars = "\u001bj"
+
+[[keyboard.bindings]]
+key = "Л"
+mods = "Command"
+chars = "\u001bk"

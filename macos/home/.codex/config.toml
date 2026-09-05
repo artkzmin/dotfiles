@@ -1,0 +1,30 @@
+model = "gpt-5.5"
+model_reasoning_effort = "xhigh"
+plan_mode_reasoning_effort = "xhigh"
+web_search = "live"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+[sandbox_workspace_write]
+network_access = true
+writable_roots = [
+    "/Users/artem/.cache/uv",
+    "/Users/artem/.local/share/uv/tools"
+]
+
+[agents]
+max_threads = 3
+max_depth = 1
+job_max_runtime_seconds = 14400
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+
+[tui]
+theme = "nord"
+status_line = ["model-with-reasoning", "context-remaining", "five-hour-limit", "weekly-limit", "thread-title"]
+status_line_use_colors = true
+
+[notice]
+hide_rate_limit_model_nudge = true

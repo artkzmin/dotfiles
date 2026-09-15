@@ -1,0 +1,12 @@
+.python-version
+AGENTS.md
+local/
+.cursorignore
+.codex/
+.codex
+.claude/
+.beads/
+.agent/
+.agents/
+.gitattributes
+.playwright-mcp/
